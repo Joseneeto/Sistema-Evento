@@ -22,6 +22,9 @@ public class Atividade {
     @JoinColumn(name = "categoria_id")
     private Categoria categoria;
 
+    @OneToMany(mappedBy = "atividade")
+    private Set<Bloco> blocos = new HashSet<>();
+
     public Atividade(){
     }
 

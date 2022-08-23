@@ -2,6 +2,9 @@ package com.joseneto.sistemaEvento.entities;
 
 import jakarta.persistence.*;
 
+import java.util.HashSet;
+import java.util.Set;
+
 @Entity
 @Table(name = "tb_categoria")
 public class Categoria {
@@ -10,6 +13,9 @@ public class Categoria {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String descricao;
+
+    @OneToMany(mappedBy = "categoria")
+    private Set<Atividade> atividades = new HashSet<>();
 
     public Categoria(){
     }
